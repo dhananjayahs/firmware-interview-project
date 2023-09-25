@@ -20,6 +20,9 @@ void run_test_demo_code(VoltageSensorInterface& temp_sensor_raw,
     std::chrono::minutes loopDuration(1);
     auto startTime = std::chrono::steady_clock::now();
 
+    FanController controller(temp_sensor_raw, sensor_power_enable, fan_relay_enable, fan_output_raw);
+    controller.init();
+
     while (true) {
         auto currentTime = std::chrono::steady_clock::now();
         auto elapsedTime = std::chrono::duration_cast<std::chrono::minutes>(currentTime - startTime);
