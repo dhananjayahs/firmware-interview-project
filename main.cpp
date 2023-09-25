@@ -32,7 +32,7 @@ void run_test_demo_code(VoltageSensorInterface& temp_sensor_raw,
 
     
         /** TODO: call FanController.loop(); **/
-     
+        controller.loop();
         std::this_thread::sleep_for(std::chrono::milliseconds(500));  
     }
 
